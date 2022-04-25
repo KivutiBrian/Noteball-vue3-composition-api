@@ -9,19 +9,27 @@ import AddEditNote from "@/components/Notes/AddEditNote.vue";
 /*
     note
 */
-const note = ref("")
+const noteContent = ref("")
 
 
 </script>
 
 <template>
   <div class="edit">
-    <AddEditNote v-model="note"  ref="addEditNoteRef">
+    <AddEditNote v-model="noteContent" placeholder="Edit Note" label="Edit Note" bgColor="link"  ref="addEditNoteRef">
       <template #buttons>
         <div class="field is-grouped is-grouped-right">
           <div class="control">
             <button
-              class="button is-link has-background-success"
+                @click="$router.push('/')"
+              class="button is-link is-light mr-3"
+              
+            >
+              Cancel
+            </button>
+            <button
+              class="button is-link has-background-link"
+              :disabled="!noteContent"
             >
               Save Note
             </button>

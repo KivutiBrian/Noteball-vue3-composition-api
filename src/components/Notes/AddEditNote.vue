@@ -16,6 +16,13 @@ const props = defineProps({
   bgColor: {
     type: String,
     default: "success"
+  },
+  placeholder: {
+    type: String,
+    default: 'Type something...'
+  },
+  label: {
+    type: String
   }
 });
 
@@ -42,13 +49,14 @@ defineExpose({
 <template>
   <div class="card p-4 mb-5" :class="`has-background-${bgColor}-dark`">
     <div class="field">
+      <label v-if="label" class="label has-text-white">{{ label }}</label>
       <div class="control">
         <textarea
           v-model="modelValue"
           @input="$emit('update:modelValue', modelValue)"
           ref="textareaRef"
           class="textarea"
-          placeholder="Add new note"
+          :placeholder="placeholder"
         />
       </div>
     </div>

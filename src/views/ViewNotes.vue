@@ -46,7 +46,7 @@ const deleteNote = (idToDelete) => {
 
 <template>
   <div class="notes">
-    <AddEditNote v-model="newNote" ref="addEditNoteRef">
+    <AddEditNote v-model="newNote" placeholder="Add New Note" ref="addEditNoteRef">
       <template #buttons>
         <div class="field is-grouped is-grouped-right">
           <div class="control">
