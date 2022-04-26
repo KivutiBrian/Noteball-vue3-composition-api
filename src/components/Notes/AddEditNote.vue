@@ -1,9 +1,9 @@
 <script setup>
-
 /*
     imports
 */
-import { ref } from 'vue'
+import { ref } from "vue";
+import { vAutofocus } from "@/directives/vAutofocus.js"
 
 /*
     props
@@ -15,34 +15,44 @@ const props = defineProps({
   },
   bgColor: {
     type: String,
-    default: "success"
+    default: "success",
   },
   placeholder: {
     type: String,
-    default: 'Type something...'
+    default: "Type something...",
   },
   label: {
-    type: String
-  }
+    type: String,
+  },
 });
 
 /*
     emits
 */
-const emit = defineEmits(['update:modelValue'])
+const emit = defineEmits(["update:modelValue"]);
 
 /*
     focus textarea
 */
-const textareaRef = ref(null)
+const textareaRef = ref(null);
 
-const focusTextArea = ()=>{
-    textareaRef.value.focus()
-}
+const focusTextArea = () => {
+  textareaRef.value.focus();
+};
 
 defineExpose({
-    focusTextArea
-})
+  focusTextArea,
+});
+
+/*
+    directives
+*/
+// const vAutofocus = {
+//   mounted : (el) => {
+//     el.focus()
+//   }
+// }
+
 
 </script>
 
@@ -57,6 +67,7 @@ defineExpose({
           ref="textareaRef"
           class="textarea"
           :placeholder="placeholder"
+          v-autofocus
         />
       </div>
     </div>

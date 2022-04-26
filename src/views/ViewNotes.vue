@@ -2,11 +2,11 @@
 /*
     imports
 */
-import { ref } from "vue";
+import { ref} from "vue";
 import Note from "@/components/Notes/Note.vue";
 import AddEditNote from "@/components/Notes/AddEditNote.vue";
 import { useStoreNotes } from "@/stores/storeNotes.js";
-
+import { useWatchCharacters } from "@/use/useWatchCharacters.js"
 /*
     store
 */
@@ -42,6 +42,14 @@ const addNote = () => {
 const deleteNote = (idToDelete) => {
   notes.value = notes.value.filter((note) => note.id != idToDelete);
 };
+
+/*
+
+    Watch characters
+*/
+useWatchCharacters(newNote)
+
+
 </script>
 
 <template>
